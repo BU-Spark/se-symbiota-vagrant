@@ -30,6 +30,10 @@ Vagrant.configure(2) do |config|
       vagrant_host.vm.synced_folder "www-html/", "/var/www/html", create: true
     end
 
+    vagrant_host.vm.provider "vmware_desktop" do |vb|
+      vagrant_host.vm.synced_folder "www-html/", "/var/www/html", create: true
+    end
+
     # Define the bootstrap file: A (shell) script that runs after first setup of your box (= provisioning)
     vagrant_host.vm.provision :shell, path: "bootstrap.sh"
     vagrant_host.vm.provision :shell, path: "symbiota.sh"
