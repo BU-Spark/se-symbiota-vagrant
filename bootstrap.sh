@@ -12,6 +12,8 @@ PROJECTFOLDER='symbiota'
 # create project folder
 sudo mkdir "/var/www/html/${PROJECTFOLDER}"
 
+# add php56 ppa
+sudo add-apt-repository ppa:ondrej/php
 # update / upgrade
 sudo apt-get update
 #sudo apt-get -y upgrade
@@ -20,7 +22,7 @@ DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -
 
 # install apache 2.5 and php 5.5
 sudo apt-get install -y apache2
-sudo apt-get install -y php5
+sudo apt-get install -y php5.6
 
 # install mysql and give password to installer
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
